@@ -320,6 +320,14 @@
     </footer>
 
     <script>
+        function randomPick(arr) {
+            if (arr.length === 0) {
+                return undefined;
+            }
+            const randomIndex = Math.floor(Math.random() * arr.length);
+            return arr[randomIndex];
+        }
+        const randomNumber = randomPick(["6282213305959", "6281375389037", "6281265237379"])
         // Sample product data
         const products = [
             {
@@ -418,7 +426,7 @@
             const modal = document.getElementById("productModal");
             document.getElementById("modalProductName").innerText = name;
             document.getElementById("modalProductDescription").innerHTML = description;
-            document.getElementById("modalBuyLink").href = `https://wa.me/6281375389037?text=Apakah+masih+ada+produknya%3F%0A${name}%0A${description.replace("<br>", "%0A")}`;
+            document.getElementById("modalBuyLink").href = `https://wa.me/${randomNumber}?text=Apakah+masih+ada+produknya%3F%0A${name}%0A${description.replace("<br>", "%0A")}`;
             document.getElementById("modalProductImage").src = image;
             modal.style.display = "flex";
         }
