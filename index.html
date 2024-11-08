@@ -84,6 +84,7 @@
             background-color: #fff;
         }
 
+        /* Header Links */
         .header-links {
             display: flex;
             align-items: center;
@@ -226,6 +227,43 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .header-links ul {
+                flex-direction: column;
+                margin-top: 10px;
+                padding: 0;
+            }
+
+            .header-links ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .header-links ul li a {
+                font-size: 1.2rem;
+            }
+
+            .search-box input {
+                width: 150px;
+            }
+
+            .search-icon {
+                font-size: 1.5rem;
+            }
+
+            /* Make product grid more responsive for small screens */
+            .product-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -311,8 +349,8 @@
             {
                 name: "LENOVO THINKPAD RYZEN",
                 image: "https://files.catbox.moe/tegvq5.jpg",
-                description: "".replace('\n', '<br>')
-            },
+                description: ""
+            }
         ];
 
         // Function to display products
@@ -355,21 +393,13 @@
             }
             displayProducts(sortedProducts);
         }
-        function randomPick(arr) {
-            if (arr.length === 0) {
-                return undefined;
-            }
-            const randomIndex = Math.floor(Math.random() * arr.length);
-            return arr[randomIndex];
-        }
-        const randomNumber = randomPick(["6282213305959", "6281375389037", "6281265237379"])
 
         // Open Modal for Product Details
         function openModal(name, description, price, image) {
             const modal = document.getElementById("productModal");
             document.getElementById("modalProductName").innerText = name;
             document.getElementById("modalProductDescription").innerHTML = description;
-            document.getElementById("modalBuyLink").href = `https://wa.me/${randomNumber}?text=Apakah+masih+ada+produknya%3F%0A${name}%0A${description.replace("<br>", "%0A")}`;
+            document.getElementById("modalBuyLink").href = `https://wa.me/6281375389037?text=Apakah+masih+ada+produknya%3F%0A${name}%0A${description.replace("<br>", "%0A")}`;
             document.getElementById("modalProductImage").src = image;
             modal.style.display = "flex";
         }
