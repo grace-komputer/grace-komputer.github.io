@@ -348,33 +348,28 @@
             },
             {
                 name: "LENOVO THINKPAD RYZEN",
+                price: 6850000,
                 image: "https://files.catbox.moe/tegvq5.jpg",
-                price: 6850000
                 description: "RAM8GB/25SSD/W11"
             },
             {
                 name: "AXIOO HYPE 1",
-                 price: 4150000,
+                price: 4150000,
                 image: "https://files.catbox.moe/h6okl2.jpg",
                 description: "INTEL N4020/RAM 4/SSD 128/WINDOWS 11 HOME"
             },
             {
                 name: "ADVAN TBOOK",
+                price: null,
                 image: "https://files.catbox.moe/5venie.jpg",
                 description: "INTEL N100 RAM 4 SSD 128"
             },
             {
                 name: "ASUS VIVOBOOK",
-                image: "https://files.catbox.moe/2rqf0p.jpg",
                 price: null,
+                image: "https://files.catbox.moe/2rqf0p.jpg",
                 description: "Core i3/RAM 8/SSD 256"
-            },
-            {
-                name: "",
-                image: "",
-                description: ""
-            },
-            
+            }
         ];
 
         // Function to display products
@@ -389,7 +384,7 @@
                     <img src="${product.image}" class="product-image" alt="${product.name}">
                     <div class="product-info">
                         <h3>${product.name}</h3>
-                        <p class="price">Rp ${product.price?.toLocaleString() || 0}</p>
+                        <p class="price">Rp ${product.price ? product.price.toLocaleString() : '0'}</p>
                         <a class="btn-buy" onclick="openModal('${product.name}', '${product.description}', '${product.price}', '${product.image}')">Detail</a>
                     </div>
                 `;
@@ -413,7 +408,7 @@
             if (sortBy === "name") {
                 sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
             } else if (sortBy === "price") {
-                sortedProducts.sort((a, b) => a.price - b.price);
+                sortedProducts.sort((a, b) => (a.price || 0) - (b.price || 0));
             }
             displayProducts(sortedProducts);
         }
