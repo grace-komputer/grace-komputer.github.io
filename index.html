@@ -16,6 +16,8 @@
     <meta name="author" content="Grace Komputer">
     <!-- Meta Robots (mengatur pengindeksan) -->
     <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://files.catbox.moe/2jvgo9.jpg">
+     <link rel="icon" href="https://files.catbox.moe/2jvgo9.jpg" type="image/jpeg">
     <title>Grace Komputer</title>
     <style>
         /* Global Styles */
@@ -280,7 +282,7 @@
 
     <!-- Header -->
     <header>
-        <h1>Grace Komputer</h1>
+        <h1 id="thead"></h1>
 
         <!-- Search Box -->
         <div class="search-box" onclick="toggleSearch()">
@@ -328,6 +330,34 @@
     </footer>
 
     <script>
+        const titles = [
+      "Anugrah Komputer",
+      "Grace Komputer",
+      "Fortuna Komputer",
+      "Toko Laptop Medan",
+      "Promo Laptop, Printer",
+      "dan Aksesoris lainnya"
+    ];
+
+    // Use a for loop to change document title
+    for (let i = 0; i < titles.length; i++) {
+      // Set document title to each item in the array
+      setTimeout(function() {
+        document.title = titles[i];
+        console.log(`Changed title to: ${titles[i]}`);
+      }, i * 1000); // Delay of 1 second between each title change
+    }
+        const titleHeader = [
+      "Anugrah Komputer",
+      "Grace Komputer",
+      "Fortuna Komputer"
+    ];
+        for (let i = 0; i < titleHeader.length; i++) {
+      setTimeout(function() {
+        document.getElementById("thead").innerText = titleHeader[i];
+      }, i * 2000); // Delay of 1 second between each title change
+    }
+        
         function randomPick(arr) {
             if (arr.length === 0) {
                 return undefined;
