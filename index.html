@@ -342,10 +342,8 @@
     // Use a for loop to change document title
     for (let i = 0; i < titles.length; i++) {
       // Set document title to each item in the array
-      setTimeout(function() {
         document.title = titles[i];
         console.log(`Changed title to: ${titles[i]}`);
-      }, i * 1000); // Delay of 1 second between each title change
     }
         const titleHeader = [
       "Anugrah Komputer",
@@ -353,9 +351,7 @@
       "Fortuna Komputer"
     ];
         for (let i = 0; i < titleHeader.length; i++) {
-      setTimeout(function() {
         document.getElementById("thead").innerText = titleHeader[i];
-      }, i * 2000); // Delay of 1 second between each title change
     }
         
         function randomPick(arr) {
