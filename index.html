@@ -339,20 +339,26 @@
       "dan Aksesoris lainnya"
     ];
 
-    // Use a for loop to change document title
-    for (let i = 0; i < titles.length; i++) {
-      // Set document title to each item in the array
-        document.title = titles[i];
-        console.log(`Changed title to: ${titles[i]}`);
-    }
-        const titleHeader = [
+    const titleHeader = [
       "Anugrah Komputer",
       "Grace Komputer",
       "Fortuna Komputer"
     ];
-        for (let i = 0; i < titleHeader.length; i++) {
-        document.getElementById("thead").innerText = titleHeader[i];
+
+    let titleIndex = 0;
+    let headerIndex = 0;
+
+    function changeTitles() {
+      document.title = titles[titleIndex];
+      document.getElementById("thead").innerText = titleHeader[headerIndex];
+
+      titleIndex = (titleIndex + 1) % titles.length;
+      headerIndex = (headerIndex + 1) % titleHeader.length;
+
+      setTimeout(changeTitles, 2000);
     }
+
+    changeTitles();
         
         function randomPick(arr) {
             if (arr.length === 0) {
